@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1>Home casa</h1>
+
+    {% if user.is_anonymous %}
+        <a href="{% url 'login' %}">login</a>
+    {% else %}
+        SEja bem vindo {{ user.get_full_name }}
+        <a href="{% url 'logout' %}">logout</a>
+    {% endif %}
+
+{% endblock %}
